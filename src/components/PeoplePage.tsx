@@ -99,8 +99,12 @@ export const PeoplePage = () => {
                 </p>
               )}
 
-              {/* <p>There are no people matching the current search criteria</p> */}
-
+              {!error && !loading && visiblePeople.length === 0 && (
+                <p data-cy="noMatchingPeople">
+                  No people match the current filters. Try adjusting your search
+                  or filters.
+                </p>
+              )}
               {!error && !loading && people.length > 0 && (
                 <PeopleTable people={visiblePeople} />
               )}
